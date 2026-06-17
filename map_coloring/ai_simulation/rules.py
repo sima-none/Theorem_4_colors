@@ -360,30 +360,23 @@ class DefaultRule(Rule):
 #  ПРЕДУСТАНОВЛЕННЫЕ ДЕФОЛТЫ ДЛЯ УДОБСТВА
 # ============================================================
 
+# ✅ ПРАВИЛЬНО:
 class DescendingRule(DefaultRule):
-    """Сначала min свобода, потом min соседи"""
-
     def __init__(self):
-        super().__init__(freedom_order="min", neighbors_order="min", priority="freedom")
-
+        super().__init__(neighbors="min", priority="dof", mode="connected")
 
 class AscendingRule(DefaultRule):
-    """Сначала min свобода, потом max соседи"""
-
     def __init__(self):
-        super().__init__(freedom_order="min", neighbors_order="max", priority="freedom")
-
+        super().__init__(neighbors="max", priority="dof", mode="connected")
 
 class RandomRule(DefaultRule):
-    """Случайный выбор"""
-
     def __init__(self):
-        super().__init__(freedom_order=None, neighbors_order=None, priority="freedom")
-
+        super().__init__(neighbors=None, priority=None, mode="alone")
 # ============================================================
 #  СЕЛЕКТОР DEFAULT ПРАВИЛА
 # ============================================================
 
+# В rules.py добавьте:
 class DefaultRuleSelector:
     _default_type: str = "descending"
 

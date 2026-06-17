@@ -22,6 +22,10 @@ class Region:
     polygon: Polygon
     color_id: int = -1
 
+    def __post_init__(self):
+        if self.polygon.is_empty:
+            raise ValueError(f"Region {self.id} has empty polygon")
+
     @property
     def color_name(self) -> str:
         return COLORS.get(self.color_id, "unknown")

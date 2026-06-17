@@ -1,6 +1,7 @@
 # ai_simulation/ai_simulation.py
-from map_coloring.core.base_app import BaseColoringApp  # ← абсолютный
-from .rules import Strategy, DefaultRule
+# ✅ ПРАВИЛЬНО:
+from map_coloring.core.base_app import BaseColoringApp
+from map_coloring.ai_simulation.rules import Strategy, DefaultRule  # ← абсолютный
 from map_coloring.core.controller import SimulationController  # ← абсолютный
 
 class AdvancedWaveSimulation(BaseColoringApp):

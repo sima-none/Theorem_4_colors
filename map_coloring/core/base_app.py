@@ -1,9 +1,9 @@
 # core/base_app.py
 from typing import Optional
-from .models import ColorMap
-from .visualizer import MapVisualizer
-from .controller import SimulationController
-from .generators import (  # ← абсолютный импорт от core
+from map_coloring.core.models import ColorMap
+from map_coloring.core.visualizer import MapVisualizer
+from map_coloring.core.controller import SimulationController
+from map_coloring.core.generators import (  # ← абсолютный импорт от core
     ConvexMapGenerator,
     NonConvexMapGenerator,
     TrianglesConvexGenerator,
