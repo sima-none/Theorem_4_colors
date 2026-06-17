@@ -1,4 +1,4 @@
-# history.py
+# ai_simulation/history.py
 from typing import List, Tuple, Optional
 
 
@@ -23,7 +23,6 @@ class HistoryManager:
 
     def add(self, region_idx: int, color: int):
         """Добавляет шаг в историю (обрезает будущее)"""
-        # Если мы не в конце, обрезаем историю
         if not self.is_at_end:
             self.steps = self.steps[:self.current]
         self.steps.append((region_idx, color))
@@ -43,6 +42,20 @@ class HistoryManager:
         step = self.steps[self.current]
         self.current += 1
         return step
+
+    def undo_last(self) -> Optional[Tuple[int, int]]:
+        """Отменяет ПОСЛЕДНИЙ шаг (без перемещения по истории)"""
+        if self.total == 0 or self.current == 0:
+            return None
+
+        # Сохраняем последний шаг
+        last_step = self.steps[self.current - 1]
+
+        # Удаляем его из истории
+        self.steps.pop()
+        self.current = len(self.steps)
+
+        return last_step
 
     def go_to_start(self):
         """Переходит в начало истории"""

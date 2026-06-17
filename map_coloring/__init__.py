@@ -17,7 +17,6 @@ from .ai_simulation.rules import (
     FirstPriorityRule,
     SecondPriorityRule,
     ThirdPriorityRule,
-    ChainPriorityRule,
     DescendingRule,
     AscendingRule,
     DefaultRule,
@@ -26,7 +25,7 @@ from .ai_simulation.rules import (
     DefaultRuleSelector
 )
 
-# manual → manual_simulation
+# manual
 from .manual_simulation.manual_simulation import ManualColoringApp
 
 # ai_simulation
@@ -43,7 +42,7 @@ __all__ = [
     'HistoryManager',
 
     # Rules
-    'Rule', 'FirstPriorityRule', 'SecondPriorityRule', 'ThirdPriorityRule', 'ChainPriorityRule',
+    'Rule', 'FirstPriorityRule', 'SecondPriorityRule', 'ThirdPriorityRule',
     'DescendingRule', 'AscendingRule', 'RandomRule',
     'Strategy', 'DefaultRuleSelector',
 
