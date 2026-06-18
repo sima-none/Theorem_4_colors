@@ -72,7 +72,7 @@ class MapVisualizer:
                 coords,
                 closed=True,
                 facecolor=facecolor,
-                edgecolor="black",
+                edgecolor="#444444",
                 linewidth=1.2,
                 alpha=alpha,
                 zorder=1
@@ -239,13 +239,19 @@ class MapVisualizer:
 
     def highlight_region(self, idx: int, color: str = "white", linewidth: float = 3.0):
         """Подсвечивает регион (для тупиков)"""
-        patch = self.patches.get(idx)
+        # idx — это индекс в списке regions
+        if idx >= len(self.colormap.regions):
+            return
+
+        region = self.colormap.regions[idx]
+        patch = self.patches.get(region.id)  # ← ищем по region.id!
+
         if patch is not None:
             original_color = patch.get_facecolor()
             patch.set_facecolor(color)
             patch.set_linewidth(linewidth)
             self.fig.canvas.draw_idle()
-            # ✅ Возвращаем цвет через небольшую задержку
+            # Возвращаем цвет через небольшую задержку
             self.fig.canvas.start_event_loop(0.5)
             patch.set_facecolor(original_color)
             patch.set_linewidth(1.2)

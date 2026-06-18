@@ -5,14 +5,12 @@ from .core.base_app import BaseColoringApp
 from .core.controller import SimulationController
 from .core.generators import (
     ConvexMapGenerator,
-    NonConvexMapGenerator,
-    TrianglesConvexGenerator,
-    TrianglesNonConvexGenerator,
+    NonConvexMapGenerator
 )
 
 # ai_simulation
 from .ai_simulation.history import HistoryManager
-from .ai_simulation.rules import (
+from map_coloring.core.rules import (
     Rule,
     FirstPriorityRule,
     SecondPriorityRule,
@@ -36,7 +34,6 @@ __all__ = [
     'ColorMap', 'Region', 'COLORS', 'KEY_MAP',
     'MapVisualizer', 'BaseColoringApp', 'SimulationController',
     'ConvexMapGenerator', 'NonConvexMapGenerator',
-    'TrianglesConvexGenerator', 'TrianglesNonConvexGenerator',
 
     # History
     'HistoryManager',

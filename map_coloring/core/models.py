@@ -344,31 +344,6 @@ class ColorMap:
             "edges": sum(len(v) for v in self.graph.values()) // 2,
         }
 
-    # В models.py добавить:
-
-    def get_region_by_point(self, x: float, y: float) -> Optional[int]:
-        """Находит регион по координатам точки (использует STRtree)"""
-        from shapely.geometry import Point
-
-        if self._region_index is None or not self.regions:
-            return None
-
-        point = Point(x, y)
-
-        # ✅ Находим все полигоны, содержащие точку
-        candidates = self._region_index.query(point)
-
-        for idx in candidates:
-            if idx < len(self.regions) and self.regions[idx].polygon.contains(point):
-                return self.regions[idx].id
-
-        # Если не нашли через STRtree, пробуем линейный поиск (страховка)
-        for i, region in enumerate(self.regions):
-            if region.polygon.contains(point):
-                return region.id
-
-        return None
-
     def print_stats(self):
         """Выводит статистику карты"""
         stats = self.get_region_stats()
