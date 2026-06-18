@@ -1,4 +1,4 @@
-# rules/base.py
+# solvers/base_rule.py
 from abc import ABC, abstractmethod
 from typing import Optional, Tuple, List, Union
 import random

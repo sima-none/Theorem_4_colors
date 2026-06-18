@@ -1,7 +1,7 @@
-# rules/priority.py
+# solvers/priority_rules.py
 from typing import Optional, Tuple, List
 import random
-from .base import Rule, DefaultRuleSelector
+from .base_rule import Rule, DefaultRuleSelector
 
 
 class PriorityRuleBase(Rule):

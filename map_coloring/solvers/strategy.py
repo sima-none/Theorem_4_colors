@@ -1,7 +1,7 @@
-# rules/strategy.py
+# solvers/strategy.py
 from typing import Optional, Tuple, List
 import random
-from .base import Rule, DefaultRule, DefaultRuleSelector
+from .base_rule import Rule, DefaultRule, DefaultRuleSelector
 
 
 class DescendingRule(DefaultRule):

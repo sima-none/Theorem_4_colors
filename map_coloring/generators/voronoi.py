@@ -1,4 +1,4 @@
-# core/generators/voronoi.py
+# generators/voronoi.py
 import numpy as np
 import random
 from scipy.spatial import Voronoi

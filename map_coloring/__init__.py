@@ -1,48 +1,34 @@
 # map_coloring/__init__.py
-from .core.models import ColorMap, Region, COLORS, KEY_MAP
-from .core.visualizer import MapVisualizer
-from .core.base_app import BaseColoringApp
+from .core.models import ColorMap, Region, COLORS, KEY_MAP, DEFAULT_COLORS
 from .core.controller import SimulationController
-from .core.generators import (
-    ConvexMapGenerator,
-    NonConvexMapGenerator
+from .core.history import HistoryManager
+
+from .generators import ConvexMapGenerator, NonConvexMapGenerator
+
+from .solvers import (
+    Rule, DefaultRule, DefaultRuleSelector,
+    FirstPriorityRule, SecondPriorityRule, ThirdPriorityRule,
+    Strategy, DescendingRule, AscendingRule, RandomRule
 )
 
-# ai_simulation
-from .ai_simulation.history import HistoryManager
-from map_coloring.core.rules import (
-    Rule,
-    FirstPriorityRule,
-    SecondPriorityRule,
-    ThirdPriorityRule,
-    DescendingRule,
-    AscendingRule,
-    DefaultRule,
-    RandomRule,
-    Strategy,
-    DefaultRuleSelector
-)
-
-# manual
-from .manual_simulation.manual_simulation import ManualColoringApp
-
-# ai_simulation
-from .ai_simulation.ai_simulation import AdvancedWaveSimulation
+from .ui.visualizer import MapVisualizer
+from .ui.base_app import BaseColoringApp
+from .ui.ai_app import AIColoringApp
+from .ui.manual_app import ManualColoringApp
 
 __all__ = [
     # Core
-    'ColorMap', 'Region', 'COLORS', 'KEY_MAP',
-    'MapVisualizer', 'BaseColoringApp', 'SimulationController',
+    'ColorMap', 'Region', 'COLORS', 'KEY_MAP', 'DEFAULT_COLORS',
+    'SimulationController', 'HistoryManager',
+
+    # Generators
     'ConvexMapGenerator', 'NonConvexMapGenerator',
 
-    # History
-    'HistoryManager',
+    # Solvers
+    'Rule', 'DefaultRule', 'DefaultRuleSelector',
+    'FirstPriorityRule', 'SecondPriorityRule', 'ThirdPriorityRule',
+    'Strategy', 'DescendingRule', 'AscendingRule', 'RandomRule',
 
-    # Rules
-    'Rule', 'FirstPriorityRule', 'SecondPriorityRule', 'ThirdPriorityRule',
-    'DescendingRule', 'AscendingRule', 'RandomRule',
-    'Strategy', 'DefaultRuleSelector',
-
-    # Apps
-    'ManualColoringApp', 'AdvancedWaveSimulation'
+    # UI
+    'MapVisualizer', 'BaseColoringApp', 'AIColoringApp', 'ManualColoringApp',
 ]
