@@ -4,10 +4,10 @@ from map_coloring.solvers import Strategy, DefaultRule, FirstPriorityRule, Secon
 
 CONFIG = {
     "map_type": "convex",
-    "base_cells": 200,
+    "base_cells": 100,
     "color_priority": True,
     "priority_rules": "1 2",
-    "order": "colors dead_min alive_max",
+    "order": "last colors",
 }
 
 if __name__ == "__main__":

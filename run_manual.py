@@ -2,8 +2,8 @@
 from map_coloring.ui.manual_app import ManualColoringApp
 
 CONFIG = {
-    "map_type": "convex",
-    "base_cells": 200,
+    "map_type": "non_convex",
+    "base_cells": 100,
 }
 
 if __name__ == "__main__":
